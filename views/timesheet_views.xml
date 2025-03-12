@@ -1,0 +1,42 @@
+<odoo>
+    <!-- Grid View for Weekly Entries -->
+    <record id="view_timesheet_grid" model="ir.ui.view">
+        <field name="name">timesheet.grid.view</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <tree string="Timesheet Grid" editable="bottom">
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="unit_amount"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_timesheet_grid" model="ir.actions.act_window">
+        <field name="name">Weekly Timesheets</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_timesheet_grid"/>
+    </record>
+
+    <!-- Timesheet Form View with Manager Approval Buttons -->
+    <record id="view_timesheet_form" model="ir.ui.view">
+        <field name="name">timesheet.form.view</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="approval_state"/>
+                    </group>
+                    <footer>
+                        <button name="action_manager_approve" string="Approve" type="object" attrs="{'invisible': [('approval_state', '!=', 'draft')]}"/>
+                        <button name="action_reject" string="Reject" type="object" attrs="{'invisible': [('approval_state', '!=', 'draft')]}"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

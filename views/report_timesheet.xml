@@ -1,0 +1,10 @@
+<odoo>
+    <report 
+        id="timesheet_report"
+        model="timesheet.report"
+        string="Timesheet Report"
+        report_type="qweb-pdf"
+        file="gpt_timesheet_grid.timesheet_report_template"
+        name="gpt_timesheet_grid.timesheet_report_template"
+    />
+</odoo>

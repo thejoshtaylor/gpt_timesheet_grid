@@ -6,4 +6,6 @@ class IrUIView(models.Model):
     @classmethod
     def _build_model(cls, registry):
         super()._build_model(registry)
-        cls._patch_method('type_selection', lambda self: super(IrUIView, self).type_selection() + [('grid', 'Grid')])
+        if not hasattr(cls, '_type_selection'):
+            cls._type_selection = []
+        cls._type_selection.append(('grid', 'Grid'))

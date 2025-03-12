@@ -1,11 +1,12 @@
-from odoo import models
+from odoo import fields, models, _
 
-class IrUIView(models.Model):
+class View(models.Model):
     _inherit = 'ir.ui.view'
 
-    @classmethod
-    def _build_model(cls, registry):
-        super()._build_model(registry)
-        if not hasattr(cls, '_type_selection'):
-            cls._type_selection = []
-        cls._type_selection.append(('grid', 'Grid'))
+    type = fields.Selection(selection_add=[('grid', "Grid")])
+
+    def _get_view_info(self):
+        _logger.info("Registering grid view in _get_view_info")
+        return {
+            'grid': {'icon': 'fa fa-th'}
+        } | super()._get_view_info()

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_grid_hr_timesheet" model="ir.ui.view">
+        <field name="name">hr.timesheet.grid</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <grid string="Timesheet Grid" adjust_field="unit_amount" disable_linking="false">
+                <field name="date"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="unit_amount"/>
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="oe_highlight"/>
+                </header>
+                <cell name="unit_amount" widget="monetary"/>
+            </grid>
+        </field>
+    </record>
+</odoo>

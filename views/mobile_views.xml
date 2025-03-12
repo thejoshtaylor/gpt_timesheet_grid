@@ -1,7 +1,0 @@
-<odoo>
-    <template id="timesheet_mobile_view" inherit_id="web.mobile_view">
-        <xpath expr="//div[@class='o_form_view']" position="attributes">
-            <attribute name="class">o_form_view o_mobile_form</attribute>
-        </xpath>
-    </template>
-</odoo>

@@ -1,17 +1,15 @@
 {
-    'name': 'GPT Timesheet Grid',
+    'name': 'GPT Timesheet Grid View',
     'version': '1.0',
     'category': 'Human Resources',
+    'summary': 'Adds a grid view to the Timesheet module',
     'author': 'Josh Taylor',
-    'summary': 'Enhanced Timesheet Grid with Manager Approval and Mobile Optimization',
-    'description': 'Adds grid view for weekly entries, manager approval, and mobile optimization.',
     'depends': ['hr_timesheet'],
     'data': [
-        'views/timesheet_views.xml',
-        'views/report_timesheet.xml',
-        'views/mobile_views.xml',
-        'data/timesheet_data.xml',
+        'security/ir.model.access.csv',
+        'views/hr_timesheet_grid_view.xml',
     ],
     'installable': True,
-    'auto_install': False,
+    'application': False,
+    'license': 'LGPL-3',
 }

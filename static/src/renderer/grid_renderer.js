@@ -12,7 +12,7 @@ export class GridRenderer extends Component {
     render() {
         console.log("Rendering grid with data:", this.state.data);
         return (
-            <table class="o_grid">
+            <table className="o_grid">
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -23,7 +23,7 @@ export class GridRenderer extends Component {
                 </thead>
                 <tbody>
                     {this.state.data.map((line) => (
-                        <tr>
+                        <tr key={line.id}>
                             <td>{line.date}</td>
                             <td>{line.project_id?.name}</td>
                             <td>{line.task_id?.name}</td>
@@ -33,7 +33,7 @@ export class GridRenderer extends Component {
                 </tbody>
             </table>
         );
-    }
+    }    
 }
 
 GridRenderer.template = 'gpt_timesheet_grid.GridRenderer';
